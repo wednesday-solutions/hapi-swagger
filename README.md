@@ -3,35 +3,34 @@
 This is a [OpenAPI (aka Swagger)](https://openapis.org/) plug-in for [Hapi](https://hapi.dev/) When installed it will self document the API interface
 in a project.
 
-[![build status](https://img.shields.io/travis/glennjones/hapi-swagger.svg?style=for-the-badge)](http://travis-ci.org/glennjones/hapi-swagger)
-[![Coverage Status](https://img.shields.io/coveralls/glennjones/hapi-swagger/dev.svg?style=for-the-badge)](https://coveralls.io/r/glennjones/hapi-swagger)
-[![npm downloads](https://img.shields.io/npm/dm/hapi-swagger.svg?style=for-the-badge)](https://www.npmjs.com/package/hapi-swagger)
-[![MIT license](http://img.shields.io/badge/license-MIT-blue.svg?style=for-the-badge)](https://raw.github.com/glennjones/hapi-swagger/master/license.txt)
+This plugin has been built specifically to work well with wurst and to work with swagger ui out fo the box
 
 ## Compatibility
 
-| Version | [Hapi](https://github.com/hapijs/hapi) | [Joi](https://github.com/hapijs/joi) | Node   | Release Notes                                                 |
-| ------- | -------------------------------------- | ------------------------------------ | ------ | ------------------------------------------------------------- |
-| `v12.x` | `>=19.0.0 @hapi/hapi`                  | `>=17.0.0`                           | `>=12` | [#644](https://github.com/glennjones/hapi-swagger/issues/644) |
-| `v11.x` | `>=18.4.0 @hapi/hapi`                  | `>=16.0.0`                           | `>=8`  | [#631](https://github.com/glennjones/hapi-swagger/issues/631) |
-| `v10.x` | `>=18.3.1 @hapi/hapi`                  | `>=14.0.0`                           | `>=8`  | [#587](https://github.com/glennjones/hapi-swagger/issues/587) |
-| `9.x`   | `>=17 hapi`                            | `<14.0.0`                            | `>=8`  | [#487](https://github.com/glennjones/hapi-swagger/issues/487) |
-| `7.x`   | `<17 hapi`                             | ???                                  | ???    | [#325](https://github.com/glennjones/hapi-swagger/issues/325) |
+| Version | [Hapi](https://github.com/hapijs/hapi) | [Joi](https://github.com/hapijs/joi) | Node  | Release Notes                                                 |
+| ------- | -------------------------------------- | ------------------------------------ | ----- | ------------------------------------------------------------- |
+| `v11.x` | `>=18.4.0 @hapi/hapi`                  | `>=16.0.0`                           | `>=8` | [#631](https://github.com/glennjones/hapi-swagger/issues/631) |
+| `v10.x` | `>=18.3.1 @hapi/hapi`                  | `>=14.0.0`                           | `>=8` | [#587](https://github.com/glennjones/hapi-swagger/issues/587) |
+| `9.x`   | `>=17 hapi`                            | `<14.0.0`                            | `>=8` | [#487](https://github.com/glennjones/hapi-swagger/issues/487) |
+| `7.x`   | `<17 hapi`                             | ???                                  | ???   | [#325](https://github.com/glennjones/hapi-swagger/issues/325) |
 
+If you're using hapi version 18.4.0 then use the following versions of inert and vision
+@hapi/inert    - 5.2.2
+@hapi/vision   - 5.5.4
 ## Installation
 
-You can add the module to your Hapi using npm:
+You can add the module to your Hapi using:
 
 ```bash
-> npm install hapi-swagger --save
+> yarn add https://github.com/wednesday-solutions/hapi-swagger/#master
 ```
 
 If you want to view the documentation from your API you will also need to install the `inert` and `vision` plugs-ins which support templates and static
 content serving.
 
 ```bash
-> npm install @hapi/inert --save
-> npm install @hapi/vision --save
+> yarn add @hapi/inert --save
+> yarn add @hapi/vision --save
 ```
 
 ## Documentation
