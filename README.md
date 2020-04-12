@@ -1,18 +1,15 @@
 # hapi-swagger
 
+This project has been forked from and inspired by (glennjones/hapi-swagger)[https://github.com/glennjones/hapi-swagger].
+
+The key differences from glennjones/hapi-swager is the support for (wurst)[https://github.com/felixheck/wurst] and modifcations in usage making consumption of the library easy and straight forward. 
+
 This is a [OpenAPI (aka Swagger)](https://openapis.org/) plug-in for [Hapi](https://hapi.dev/) When installed it will self document the API interface
 in a project.
 
-This plugin has been built specifically to work well with wurst and to work with swagger ui out fo the box
+This plugin has been built specifically to work well with (wurst)[https://github.com/felixheck/wurst] and to work with swagger ui out of the box.
 
-## Compatibility
-
-| Version | [Hapi](https://github.com/hapijs/hapi) | [Joi](https://github.com/hapijs/joi) | Node  | Release Notes                                                 |
-| ------- | -------------------------------------- | ------------------------------------ | ----- | ------------------------------------------------------------- |
-| `v11.x` | `>=18.4.0 @hapi/hapi`                  | `>=16.0.0`                           | `>=8` | [#631](https://github.com/glennjones/hapi-swagger/issues/631) |
-| `v10.x` | `>=18.3.1 @hapi/hapi`                  | `>=14.0.0`                           | `>=8` | [#587](https://github.com/glennjones/hapi-swagger/issues/587) |
-| `9.x`   | `>=17 hapi`                            | `<14.0.0`                            | `>=8` | [#487](https://github.com/glennjones/hapi-swagger/issues/487) |
-| `7.x`   | `<17 hapi`                             | ???                                  | ???   | [#325](https://github.com/glennjones/hapi-swagger/issues/325) |
+However it is compatible and works out of the box with all hapi projects.
 
 If you're using hapi version 18.4.0 then use the following versions of inert and vision
 @hapi/inert    - 5.2.2
@@ -22,7 +19,7 @@ If you're using hapi version 18.4.0 then use the following versions of inert and
 You can add the module to your Hapi using:
 
 ```bash
-> yarn add https://github.com/wednesday-solutions/hapi-swagger/#master
+> yarn add hapi-swaggerui
 ```
 
 If you want to view the documentation from your API you will also need to install the `inert` and `vision` plugs-ins which support templates and static
@@ -159,5 +156,3 @@ await server.register(plugins);
 Read the [contributing guidelines](./.github/CONTRIBUTING.md) for details.
 
 ## Thanks
-
-I would like to thank all that have contributed to the project over the last couple of years. This is a hard project to maintain, getting Hapi to work with Swagger is like putting a round plug in a square hole. Without the help of others it would not be possible.
