@@ -1,8 +1,8 @@
-# hapi-swagger
+# hapi-swaggerui
 
 This project has been forked from and inspired by (glennjones/hapi-swagger)[https://github.com/glennjones/hapi-swagger].
 
-The key differences from glennjones/hapi-swager is the support for (wurst)[https://github.com/felixheck/wurst] and modifcations in usage making consumption of the library easy and straight forward. 
+The key differences from glennjones/hapi-swager is the support for (wurst)[https://github.com/felixheck/wurst] and modifcations in usage making consumption of the library easy and straight forward.
 
 This is a [OpenAPI (aka Swagger)](https://openapis.org/) plug-in for [Hapi](https://hapi.dev/) When installed it will self document the API interface
 in a project.
@@ -12,8 +12,9 @@ This plugin has been built specifically to work well with (wurst)[https://github
 However it is compatible and works out of the box with all hapi projects.
 
 If you're using hapi version 18.4.0 then use the following versions of inert and vision
-@hapi/inert    - 5.2.2
-@hapi/vision   - 5.5.4
+@hapi/inert - 5.2.2
+@hapi/vision - 5.5.4
+
 ## Installation
 
 You can add the module to your Hapi using:
@@ -43,28 +44,38 @@ In your Hapi apps main JavaScript file add the following code to created a Hapi 
 const Hapi = require('@hapi/hapi');
 const Inert = require('@hapi/inert');
 const Vision = require('@hapi/vision');
-const HapiSwagger = require('hapi-swagger');
+const hapiSwaggerUI = require('hapi-swaggerui');
 const Pack = require('./package');
 
 (async () => {
     const server = await new Hapi.Server({
         host: 'localhost',
-        port: 3000,
+        port: 9000,
     });
 
-    const swaggerOptions = {
-        info: {
-                title: 'Test API Documentation',
-                version: Pack.version,
-            },
-        };
-
+    await server.register({
+        plugin: wurst,
+        options: {
+            routes: '**/routes.js',
+            cwd: path.join(__dirname, 'lib/routes'),
+            log: true
+        }
+    });
     await server.register([
-        Inert,
-        Vision,
+        inert,
+        vision,
         {
-            plugin: HapiSwagger,
-            options: swaggerOptions
+            plugin: hapiSwagger,
+            swaggerOptions: {
+                documentationPage: true,
+                swaggerUI: true,
+                auth: false,
+                authorization: null,
+                info: {
+                    title: 'Nodejs Hapi Template API documentation',
+                    version: Pack.version
+                }
+            }
         }
     ]);
 
@@ -74,8 +85,6 @@ const Pack = require('./package');
     } catch(err) {
         console.log(err);
     }
-
-    server.route(Routes);
 })();
 ```
 
@@ -113,25 +122,25 @@ so the the full URL for the above options would be `http://localhost:3000/docume
 
 ### Typescript
 
-**hapi-swagger** exports its own typescript definition file that can be used when registering the plugin with **Hapi**. See example below:
+**hapi-swaggerui** exports its own typescript definition file that can be used when registering the plugin with **Hapi**. See example below:
 
 #### Install Typescript Definition Files
 
 ```sh
-npm i @types/hapi__hapi @types/hapi__inert @types/hapi__joi @types/hapi__vision @types/node hapi-swagger --save-dev
+npm i @types/hapi__hapi @types/hapi__inert @types/hapi__joi @types/hapi__vision @types/node hapi-swaggerui --save-dev
 ```
 
 #### Register Plugin with Typescript
 
 ```typescript
 import * as Hapi from '@hapi/hapi';
-import * as HapiSwagger from 'hapi-swagger';
+import * as hapiSwaggerUI from 'hapi-swaggerui';
 
 // code omitted for brevity
 
-const swaggerOptions: HapiSwagger.RegisterOptions = {
+const swaggerOptions: hapiSwaggerUI.RegisterOptions = {
     info: {
-        title: 'Test API Documentation'
+        title: 'Nodejs Hapi Template API documentation'
     }
 };
 
@@ -143,7 +152,7 @@ const plugins: Array<Hapi.ServerRegisterPluginObject<any>> = [
         plugin: Vision
     },
     {
-        plugin: HapiSwagger,
+        plugin: hapiSwaggerUI,
         options: swaggerOptions
     }
 ];
