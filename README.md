@@ -19,7 +19,7 @@ If you're using hapi version 18.4.0 then use the following versions of inert and
 You can add the module to your Hapi using:
 
 ```bash
-> yarn add hapi-swaggerui
+> yarn add https://github.com/wednesday-solutions/hapi-swagger/#master
 ```
 
 If you want to view the documentation from your API you will also need to install the `inert` and `vision` plugs-ins which support templates and static
