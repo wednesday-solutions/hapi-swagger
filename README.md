@@ -2,7 +2,7 @@
 
 This project has been forked from and inspired by [glennjones/hapi-swagger](https://github.com/glennjones/hapi-swagger).
 
-The key differences from glennjones/hapi-swager is the support for [wurst](https://github.com/felixheck/wurst) and modifcations in usage making consumption of the library easy and straight forward.
+The key differences from glennjones/hapi-swager is the support for [wurst](https://github.com/felixheck/wurst) and modifications in usage making consumption of the library easy and straight forward.
 
 This is a [OpenAPI (aka Swagger)](https://openapis.org/) plug-in for [Hapi](https://hapi.dev/) When installed it will self document the API interface
 in a project.
