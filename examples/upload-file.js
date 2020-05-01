@@ -69,7 +69,7 @@ const routes = [
     options: {
       handler: storeFile,
       plugins: {
-        'hapi-swagger': {
+        'hapi-swaggerui': {
           payloadType: 'form'
         }
       },

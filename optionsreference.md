@@ -30,13 +30,13 @@
         -   `url` (string) The URL to the license used by the API. MUST be formatted as a URL
     -   `x-*` (any): any property or object with a key starting with `x-*` is included as such in the `info` section of the object returned by the JSON endpoint. This allows custom properties to be defined as options and copied as such.
 -   `tags`: (array) containing array of [Tag Object](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#tagObject) used to group endpoints in UI. No defaults are provided.
--   `routeTag`: (string) Tag used by `hapi-swagger` to collect all the route definitions that should be included in the OpenAPI swagger defintion - default: `api`
+-   `routeTag`: (string) Tag used by `hapi-swaggerui` to collect all the route definitions that should be included in the OpenAPI swagger defintion - default: `api`
 -   `grouping`: (string) how to create grouping of endpoints value either `path` or `tags` - default: `path`
 -   `tagsGroupingFilter`: (function) A function used to determine which tags should be used for grouping (when `grouping` is set to `tags`) - default: `(tag) => tag !== 'api'`
 -   `securityDefinitions:`: (object) Containing [Security Definitions Object](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#securityDefinitionsObject). No defaults are provided.
 -   `payloadType`: (string) How payload parameters are displayed `json` or `form` - default: `json`
--   `documentationRouteTags`: (string or array) Add hapi tags to internal `hapi-swagger` routes - default: `[]`
--   `documentationRoutePlugins`: (object) Add hapi plugins to internal `hapi-swagger` routes - default: `{}`
+-   `documentationRouteTags`: (string or array) Add hapi tags to internal `hapi-swaggerui` routes - default: `[]`
+-   `documentationRoutePlugins`: (object) Add hapi plugins to internal `hapi-swaggerui` routes - default: `{}`
 -   `consumes`: (array) The mime types consumed - default: `['application/json']`
 -   `produces`: (array) The mime types produced - default: `['application/json']`
 -   `xProperties`: Adds JOI data that cannot be use directly by swagger as metadata - default: `true`
@@ -56,14 +56,14 @@
 -   `routesBasePath`: (string) The path to all the SwaggerUI assets endpoints. If swaggerUIPath is specified and this parameter is not, it will take swaggerUIPath value. Useful when behind a reverse proxy - default: `/swaggerui/`
 -   `documentationPage`: (boolean) Add documentation page - default: `true`
 -   `documentationPath`: (string) The path of the documentation page - default: `/documentation`
--   `templates`: (string) The directory path used by `hapi-swagger` and `@hapi/vision` to resolve and load the templates to render `swagger-ui` interface. The directory must contain `index.html` and `debug.html` templates. Default is `templates` directory in this package.
+-   `templates`: (string) The directory path used by `hapi-swaggerui` and `@hapi/vision` to resolve and load the templates to render `swagger-ui` interface. The directory must contain `index.html` and `debug.html` templates. Default is `templates` directory in this package.
 -   `expanded`: (string) If UI is expanded when opened. `none`, `list` or `full` - default: `list`
 -   `sortTags`: (string) a sort method for `tags` i.e. groups in UI. `alpha`
     -   `alpha`: sort by paths alphanumerically
 -   `sortEndpoints`: (string) a sort method for endpoints in UI. `alpha`, `method`, `ordered`. Default is `alpha`.
     -   `alpha`: sort by paths alphanumerically
     -   `method`: sort by HTTP method
-    -   `ordered`: sort by `order` value of the `hapi-swagger` plugin options of the route.
+    -   `ordered`: sort by `order` value of the `hapi-swaggerui` plugin options of the route.
 -   `uiCompleteScript`: (string) A JavaScript string injected into the HTML, called when UI loads - default: `null`
 -   `validatorUrl`: (string || null) sets the external validating URL Can switch off by setting to `null`
 
@@ -90,7 +90,7 @@
 
 ### Plugins Example
 
-The plugin level options are added as you register the `hapi-swagger` plugin.
+The plugin level options are added as you register the `hapi-swaggerui` plugin.
 
 ```Javascript
 const options = {
@@ -125,7 +125,7 @@ server.route(Routes);
 
 ### Route Example
 
-The route level options are always placed within the `plugins.hapi-swagger` object under `config`. These options are
+The route level options are always placed within the `plugins.hapi-swaggerui` object under `config`. These options are
 only assigned to the route they are apply to.
 
 ```Javascript
@@ -135,7 +135,7 @@ only assigned to the route they are apply to.
     options: {
         handler: handlers.storeUpdate,
         plugins: {
-            'hapi-swagger': {
+            'hapi-swaggerui': {
                 responses: {
                     '400': {
                         'description': 'BadRequest'

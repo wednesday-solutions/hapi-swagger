@@ -49,7 +49,7 @@ The most common API endpoint with Hapi.js is one that POST's a JSON body.
 
 ## Form body
 
-If you wish to have hapi-swagger display a interface to POST data in `form-urlencoded` format add the route option `payloadType: 'form'`.
+If you wish to have hapi-swaggerui display a interface to POST data in `form-urlencoded` format add the route option `payloadType: 'form'`.
 
 ```javascript
 {
@@ -59,7 +59,7 @@ If you wish to have hapi-swagger display a interface to POST data in `form-urlen
         handler: (request, h) => { return 'OK'; },
         tags: ['api'],
         plugins: {
-            'hapi-swagger': {
+            'hapi-swaggerui': {
                 payloadType: 'form'
             }
         },
@@ -230,7 +230,7 @@ you added route option `order` to each endpoint and switch the plugin options to
             'api'
         ],
         plugins: {
-            'hapi-swagger': {
+            'hapi-swaggerui': {
                 order: 2
             }
         }
@@ -360,9 +360,9 @@ For example:
 -   404 -> `Not Found`
 -   204 -> `No Content`
 
-Basically, Swagger requires a `description` for each response, and by taking the default description we can overcome this requirement. Setting `response.status.204` to `undefined` will allow **hapi-swagger** to pass-through the description of `No Content` to the swagger definition.
+Basically, Swagger requires a `description` for each response, and by taking the default description we can overcome this requirement. Setting `response.status.204` to `undefined` will allow **hapi-swaggerui** to pass-through the description of `No Content` to the swagger definition.
 
-However, if one wishes to provide a custom `description`, then hapi-swagger offers the `plugins.hapi-swager.responses` option in which response objects specify a `description` key which allows this.
+However, if one wishes to provide a custom `description`, then hapi-swaggerui offers the `plugins.hapi-swager.responses` option in which response objects specify a `description` key which allows this.
 With this option, the `description` is required, the `schema` is optional, and unlike `response.status` option above, the schema object does not validate the API response.
 
 In the following example, the `Reason` box in Swagger-UI will show the following descriptions:
@@ -377,7 +377,7 @@ options: {
     tags: ['api'],
     notes: ['Adds together two numbers and return the result'],
     plugins: {
-        'hapi-swagger': {
+        'hapi-swaggerui': {
             responses: {
                 200: {
                     description: 'Smooth sail',
@@ -408,7 +408,7 @@ options: {
 
 ## Caching
 
-It can take some time to create the `swagger.json` data if your server has many complex routes. So `hapi-swagger`
+It can take some time to create the `swagger.json` data if your server has many complex routes. So `hapi-swaggerui`
 can cache its `swagger.json` data. The cache options are those of Hapi
 
 ```javascript
@@ -447,7 +447,7 @@ the three important elements are:
     options: {
         handler: handlers.storeAddFile,
         plugins: {
-            'hapi-swagger': {
+            'hapi-swaggerui': {
                 payloadType: 'form'
             }
         },
@@ -539,7 +539,7 @@ options: {
 }
 ```
 
-With both `documentationPage` and `swaggerUI` set to false you do not need to load `Inert` and `Vision` plugins to use `hapi-swagger`.
+With both `documentationPage` and `swaggerUI` set to false you do not need to load `Inert` and `Vision` plugins to use `hapi-swaggerui`.
 
 ## Simplifying the JSON
 
@@ -596,10 +596,10 @@ This will load all routes that have one or more of the given tags (`foo` or `bar
 
 ## Example code in project
 
-There are a number of examples of different uses of `hapi-swagger` in the examples directory. These files contain a full Hapi node app:
+There are a number of examples of different uses of `hapi-swaggerui` in the examples directory. These files contain a full Hapi node app:
 
 -   [`custom.js`](examples/custom.js) - how build a custom documentation page with its own CSS and JS
--   [`debug.js`](examples/debug.js) - how console.log debug information from `hapi-swagger`
+-   [`debug.js`](examples/debug.js) - how console.log debug information from `hapi-swaggerui`
 -   [`group-ordered.js`](examples/group-ordered.js) - how group and ordered endpoints in the UI
 -   [`jwt.js`](examples/jwt.js) - how to used the plug-in in combination with JSON Web Tokens (JWT) `securityDefinition`
 -   [`options.js`](examples/options.js) - how to use many of the plug-ins options
@@ -612,6 +612,6 @@ There are a number of examples of different uses of `hapi-swagger` in the exampl
 
 Both these example use a custom HTML page
 
--   [`be-more-hapi`](https://github.com/glennjones/be-more-hapi) - talk from Async.js on the October 2013 - old `hapi-swagger` example project, but keep update
+-   [`be-more-hapi`](https://github.com/glennjones/be-more-hapi) - talk from Async.js on the October 2013 - old `hapi-swaggerui` example project, but keep update
 -   [`hapi-token-docs`](https://github.com/glennjones/hapi-token-docs) - A example site using Hapi, JWT tokens and swagger documentation
--   [`time-to-be-hapi`](https://github.com/glennjones/time-to-be-hapi) - Londonjs talk March 2016 has many example uses of Hapi and one using `hapi-swagger`
+-   [`time-to-be-hapi`](https://github.com/glennjones/time-to-be-hapi) - Londonjs talk March 2016 has many example uses of Hapi and one using `hapi-swaggerui`

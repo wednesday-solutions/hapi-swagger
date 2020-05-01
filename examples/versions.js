@@ -155,7 +155,7 @@ server.register(
             options: {
                 tags: ['api', 'v1'],
                 plugins: {
-                    'hapi-swagger': {
+                    'hapi-swaggerui': {
                         responses: {
                             '200': {
                                 description: 'Success',
@@ -185,7 +185,7 @@ server.register(
             options: {
                 tags: ['api', 'v1', 'v2'],
                 plugins: {
-                    'hapi-swagger': {
+                    'hapi-swaggerui': {
                         responses: {
                             '200': {
                                 description: 'Success',
@@ -216,7 +216,7 @@ server.register(
             options: {
                 tags: ['api', 'v2'],
                 plugins: {
-                    'hapi-swagger': {
+                    'hapi-swaggerui': {
                         responses: {
                             '200': {
                                 description: 'Success',

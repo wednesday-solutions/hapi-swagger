@@ -1,6 +1,6 @@
 # hapi-swaggerui
 
-This project has been forked from and inspired by [glennjones/hapi-swagger](https://github.com/glennjones/hapi-swagger).
+This project has been forked from and inspired by [glennjones/hapi-swaggerui](https://github.com/glennjones/hapi-swaggerui).
 
 The key differences from glennjones/hapi-swager is the support for [wurst](https://github.com/felixheck/wurst) and modifications in usage making consumption of the library easy and straight forward.
 
@@ -20,7 +20,7 @@ If you're using hapi version 18.4.0 then use the following versions of inert and
 You can add the module to your Hapi using:
 
 ```bash
-> yarn add https://github.com/wednesday-solutions/hapi-swagger/#master
+> yarn add https://github.com/wednesday-solutions/hapi-swaggerui/#master
 ```
 
 If you want to view the documentation from your API you will also need to install the `inert` and `vision` plugs-ins which support templates and static

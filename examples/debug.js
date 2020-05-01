@@ -20,7 +20,7 @@ let swaggerOptions = {
   debug: true // switch on debug
 };
 
-// use chalk to log colour hapi-swagger messages to console.
+// use chalk to log colour hapi-swaggerui messages to console.
 const formatLogEvent = function(event) {
   if (event.tags.error) {
     console.log(`[${event.tags}], ${Chalk.red(event.data)}`);

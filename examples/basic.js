@@ -72,7 +72,7 @@ const ser = async () => {
       description: 'Update sum',
       notes: ['Update a sum in our data store'],
       plugins: {
-        'hapi-swagger': {
+        'hapi-swaggerui': {
           payloadType: 'form'
         }
       },
